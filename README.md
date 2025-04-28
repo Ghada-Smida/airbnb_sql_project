@@ -23,35 +23,35 @@ You can access the dataset from the following URL:
 ## Airbnb Dataset columns
 
 The dataset contains the following columns:
-•	price: Price of the property.
+**•	price:** Price of the property.
 
-•	room_type: Type of room (Private, Shared,Entire home/apt).
+**•	room_type:** Type of room (Private, Shared,Entire home/apt).
 
-•	room_shared: Boolean indicating whether the room is shared.
+**•	room_shared:** Boolean indicating whether the room is shared.
 
-•	room_private: Boolean indicating whether the room is private.
+**•	room_private:** Boolean indicating whether the room is private.
 
-•	person_capacity: The number of people the room can accommodate.
+**•	person_capacity:** The number of people the room can accommodate.
 
-•	host_is_superhost: Boolean indicating whether the host is a superhost.
+**•	host_is_superhost:** Boolean indicating whether the host is a superhost.
 
-•	multi: Boolean indicating whether the property has multiple rooms.
+**•	multi:** Boolean indicating whether the property has multiple rooms.
 
-•	biz: Boolean indicating whether the property is classified as a business property.
+**•	biz:** Boolean indicating whether the property is classified as a business property.
 
-•	cleanliness_rating: Rating for cleanliness.
+**•	cleanliness_rating:** Rating for cleanliness.
 
-•	guest_satisfaction_overall: Overall guest satisfaction.
+**•	guest_satisfaction_overall:** Overall guest satisfaction.
 
-•	bedrooms: Number of bedrooms in the property.
+**•	bedrooms:** Number of bedrooms in the property.
 
-•	city_center_distance: Distance from the city center.
+**•	city_center_distance:** Distance from the city center.
 
-•	metro_station_dist: Distance to the nearest metro station.
+**•	metro_station_dist:** Distance to the nearest metro station.
 
-•	lng, lat: Longitude and Latitude for the property.
+**•	lng, lat:** Longitude and Latitude for the property.
 
-•	is_weekend: Boolean indicating whether the property data corresponds to a weekend (TRUE) or a weekday (FALSE). 
+**•	is_weekend:** Boolean indicating whether the property data corresponds to a weekend (TRUE) or a weekday (FALSE). 
 
 
 ## Business Problems and Solutions
@@ -305,8 +305,13 @@ GROUP BY biz;
 ## 🔍 Key Findings
 
 **• Room Types:** Entire homes/apartments dominate the market and are priced considerably higher than private or shared rooms.
+
 **•	Best Value:** Properties with a good balance of guest satisfaction and reasonable pricing offer the best value, making them ideal for solo travelers and couples.
+
 **•	Location's Impact:** Properties closer to the city center and metro stations are priced higher, reflecting their added convenience and desirable location.
+
 **•	Cleanliness Drives Satisfaction:** There is a clear link between cleanliness ratings and guest satisfaction. Highly rated properties consistently maintain excellent cleanliness standards.
+
 **•	Superhost Advantage:** Superhosts tend to receive higher guest satisfaction ratings and can charge slightly more while still receiving positive reviews.
+
 **•	Weekend Dynamics:** Entire homes and private rooms are generally priced higher during weekdays compared to weekends, while shared rooms see a price increase on weekends. This suggests varying demand patterns and possible pricing strategies based on the type of accommodation and the day of the week.
