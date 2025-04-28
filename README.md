@@ -23,6 +23,7 @@ You can access the dataset from the following URL:
 ## Airbnb Dataset columns
 
 The dataset contains the following columns:
+
 **•	price:** Price of the property.
 
 **•	room_type:** Type of room (Private, Shared,Entire home/apt).
