@@ -24,19 +24,33 @@ You can access the dataset from the following URL:
 
 The dataset contains the following columns:
 •	price: Price of the property.
+
 •	room_type: Type of room (Private, Shared,Entire home/apt).
+
 •	room_shared: Boolean indicating whether the room is shared.
+
 •	room_private: Boolean indicating whether the room is private.
+
 •	person_capacity: The number of people the room can accommodate.
+
 •	host_is_superhost: Boolean indicating whether the host is a superhost.
+
 •	multi: Boolean indicating whether the property has multiple rooms.
+
 •	biz: Boolean indicating whether the property is classified as a business property.
-•	cleanliness_rating: Rating for cleanliness (1 to 10).
-•	guest_satisfaction_overall: Overall guest satisfaction (1 to 10).
+
+•	cleanliness_rating: Rating for cleanliness.
+
+•	guest_satisfaction_overall: Overall guest satisfaction.
+
 •	bedrooms: Number of bedrooms in the property.
+
 •	city_center_distance: Distance from the city center.
+
 •	metro_station_dist: Distance to the nearest metro station.
+
 •	lng, lat: Longitude and Latitude for the property.
+
 •	is_weekend: Boolean indicating whether the property data corresponds to a weekend (TRUE) or a weekday (FALSE). 
 
 
