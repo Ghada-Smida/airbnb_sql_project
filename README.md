@@ -63,7 +63,7 @@ SELECT room_type, COUNT(*) AS total_properties
 FROM airbnb_paris
 GROUP BY room_type;
 ```
-**Objective:** Understand the supply of each room type.
+**Objective:** Determine the distribution of room types in the dataset.
 
 ## 2.How do average prices differ across room types?
 
@@ -74,7 +74,7 @@ GROUP BY room_type
 ORDER BY avg_price DESC;
 
 ```
-**Objective:** Identify pricing trends per room type.
+**Objective:** Analyze the average price for each room type
 
 ## 3. What’s the average guest satisfaction for each room type?
 
@@ -113,7 +113,7 @@ ORDER BY quality_price_ratio DESC
 LIMIT 10;
 
 ```
-**Objective:** Identify high-value properties.
+**Objective:** Identify properties with the best quality-to-price ratio
 
 ## 6. What are the most expensive properties on the platform?
 
@@ -153,7 +153,7 @@ GROUP BY multi;
 ```sql
 SELECT 
   CASE 
-    WHEN price > 150 AND cleanliness_rating >= 4.5 AND guest_satisfaction_overall >= 9 THEN 'Premium'
+    WHEN price > 300 AND cleanliness_rating >= 10 AND guest_satisfaction_overall >= 95 THEN 'Premium'
     ELSE 'Economy'
   END AS category,
   COUNT(*) AS total_properties
@@ -164,25 +164,8 @@ GROUP BY category;
 **Objective:** Categorize properties as either 'Premium' or ‘economy’ based on price, cleanliness rating, and guest satisfaction to compare different categories of properties.
 
 ### 📍 Location Impact
-## 10.How does the distance from the city center affect pricing?
 
-```sql
-SELECT 
-    CASE 
-        WHEN city_center_distance < 1 THEN '0-1 km'
-        WHEN city_center_distance BETWEEN 1 AND 5 THEN '1-5 km'
-        WHEN city_center_distance BETWEEN 5 AND 10 THEN '5-10 km'
-        ELSE '10+ km'
-    END AS distance_range,
-    AVG(price) AS avg_price
-FROM airbnb_paris
-GROUP BY distance_range
-ORDER BY distance_range;
-
-```
-**Objective:** Average Price by Distance Range from City Center
-
-## 11. Are properties near the city center more expensive?
+## 10. Are properties near the city center more expensive?
 
 ```sql
 SELECT 
@@ -199,7 +182,7 @@ ORDER BY avg_price DESC;
 ```
 **Objective:**  Compare the prices of properties based on their proximity to the city center.
 
-## 12. How does proximity to metro stations influence pricing?
+## 11. How does proximity to metro stations influence pricing?
 
 ```sql
 SELECT 
@@ -216,7 +199,7 @@ GROUP BY metro_proximity;
 **Objective:** Analyze the price differences of properties based on their proximity to the nearest metro station.
 
 ### 🧼 Cleanliness & Satisfaction
-## 13. What’s the relationship between cleanliness rating and guest satisfaction?
+## 12. What’s the relationship between cleanliness rating and guest satisfaction?
 
 ```sql
 SELECT cleanliness_rating, 
@@ -228,7 +211,7 @@ ORDER BY cleanliness_rating DESC;
 ```
 **Objective:** Analyze if cleaner places are better rated.
 
-## 14. Which properties are both exceptionally clean and highly rated?
+## 13. Which properties are both exceptionally clean and highly rated?
 
 ```sql
 SELECT id, cleanliness_rating, guest_satisfaction_overall
@@ -241,7 +224,7 @@ LIMIT 10;
 **Objective:** Showcase properties that excel in quality.
 
 ### 🌟 Superhost Analysis
-## 15. Do Superhosts have higher guest satisfaction?
+## 14. Do Superhosts have higher guest satisfaction?
 
 ```sql
 SELECT host_is_superhost, 
@@ -250,9 +233,9 @@ FROM airbnb_paris
 GROUP BY host_is_superhost;
 
 ```
-**Objective:** Compare host type impact on ratings.
+**Objective:** Compare guest satisfaction ratings between superhost and non-superhost properties.
 
-## 16.	Do Superhosts charge more?
+## 15.	Do Superhosts charge more?
 ```sql
 SELECT host_is_superhost, ROUND(AVG(price), 2) AS avg_price
 FROM airbnb_paris
@@ -260,7 +243,7 @@ GROUP BY host_is_superhost;
 ```
 **Objective:**  Investigate whether superhosts tend to charge higher prices for their properties compared to non-superhosts.
 
-## 17.	How do Superhosts compare to others in both price and satisfaction?
+## 16.	How do Superhosts compare to others in both price and satisfaction?
 ```sql
 SELECT host_is_superhost,
        AVG(price) AS average_price,
@@ -269,9 +252,9 @@ FROM airbnb_paris
 GROUP BY host_is_superhost;
 
 ```
-**Objective:**  Profile Superhost performance.
+**Objective:**  Analyze the relationship between price and guest satisfaction for superhosts versus non-superhosts.
 ### 📅 Weekend vs. Weekday Dynamics
-## 18.	How do prices and satisfaction differ between weekdays and weekends?
+## 17.	How do prices and satisfaction differ between weekdays and weekends?
 ```sql
 SELECT is_weekend, 
        ROUND(AVG(price), 2) AS avg_price,
@@ -281,21 +264,20 @@ GROUP BY is_weekend;
 ```
 **Objective:**  Compare the average price and guest satisfaction between weekend and weekday bookings.
 
-## 19.	Do room type trends change depending on the day?
+## 18.	Do room type trends change depending on the day?
 ```sql
 SELECT room_type, is_weekend,
        ROUND(AVG(price), 2) AS avg_price,
        ROUND(AVG(guest_satisfaction_overall), 2) AS avg_satisfaction
 FROM airbnb_paris
 GROUP BY room_type, is_weekend
-HAVING COUNT(*) > 10
 ORDER BY room_type, is_weekend;
 
 ```
 **Objective:**  Analyze room type price and guest satisfaction trends based on whether the booking is made on a weekend or weekday.
 
 ### 💼 Business properties Analysis
-## 20.	Are Business Properties More Expensive?
+## 19.	Are Business Properties More Expensive?
 ```sql
 SELECT biz, ROUND(AVG(price), 2) AS avg_price
 FROM airbnb_paris
@@ -315,4 +297,4 @@ GROUP BY biz;
 
 **•	Superhost Advantage:** Superhosts tend to receive higher guest satisfaction ratings and can charge slightly more while still receiving positive reviews.
 
-**•	Weekend Dynamics:** Entire homes and private rooms are generally priced higher during weekdays compared to weekends, while shared rooms see a price increase on weekends. This suggests varying demand patterns and possible pricing strategies based on the type of accommodation and the day of the week.
+**•	Weekend Dynamics:** Entire homes and private rooms are generally priced higher during weekdays compared to weekends, while shared rooms see a price increase on weekends.
